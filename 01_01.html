@@ -14,10 +14,13 @@
             height: 100px;
             border: 2px solid black;
             background: rgba(0, 119, 255, 0.7);
+            transition: 1s cubic-bezier(0.25, 0.1, 0.27, 1.97);
         }
         .box:hover {
             transform: scale(1.2) rotate(30deg);
+            /* origin은 변경기준점을 얘기함 */
             transform-origin: 100% 100%;
+            background-color: yellow;
         }
     </style>
 </head>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Web</title>
+    <style>
+        body {
+            background: #222;
+        }
+        @keyframes spaceship-ani {
+            /* 100% 랑 to랑 같음 0%는 0,0이여서(from) 안써도됌 */
+            to {
+                background-position: -2550px 0;
+            }
+        }
+        .spaceship {
+            width: 150px;
+            height: 150px;
+            background: url('images/sprite_spaceship.png') no-repeat 0 0;
+            background-size: auto 150px;
+            /* background-size: cover; */
+            animation: spaceship-ani 1s infinite steps(17);
+        }
+    </style>
+</head>
+</head>
+<body>
+    <div class="spaceship"></div>
+</body>
+</html>
