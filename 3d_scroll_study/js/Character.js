@@ -28,6 +28,44 @@ class Character {
         <div class="character-face character-leg-face face-back"></div>
       </div>
     `;
+
     document.querySelector(".stage").appendChild(this.mainElem);
+    this.mainElem.style.left = `${info.xPos}%`;
+
+    // 스크롤 상태
+    this.scrollState = false;
+
+    //바로 이전 스크롤 위치
+    this.lastScrollTop = 0;
+
+    // 초기화 메서드 호출
+    this.init(info);
+  }
+
+  // init 메서드 정의
+  init(info) {
+    const self = this;
+
+    window.addEventListener("scroll", function () {
+      this.clearTimeout(self.scrollState);
+      if (!self.scrollState) {
+        self.mainElem.classList.add("running");
+      }
+
+      self.scrollState = this.setTimeout(function () {
+        self.scrollState = false;
+        self.mainElem.classList.remove("running");
+      }, 500);
+
+      if (self.lastScrollTop > scrollY) {
+        // 스크롤 올림
+        self.mainElem.setAttribute("data-direction", "backward");
+      } else {
+        // 스크롤 내림
+        self.mainElem.setAttribute("data-direction", "forward");
+      }
+
+      self.lastScrollTop = scrollY;
+    });
   }
 }
