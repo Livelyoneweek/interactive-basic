@@ -64,7 +64,7 @@ class Character {
       self.scrollState = window.setTimeout(function () {
         self.scrollState = false;
         self.mainElem.classList.remove("running");
-      }, 500);
+      }, 100);
 
       if (self.lastScrollTop > window.scrollY) {
         self.mainElem.setAttribute("data-direction", "backward");
